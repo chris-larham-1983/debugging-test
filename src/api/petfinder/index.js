@@ -1,6 +1,7 @@
 export const getPets = async (type = '', query = '') => {
   const searchParams = new URLSearchParams({ type, query });
-  const requestUrl = `/animals?${searchParams.toString()}`;
+  //const requestUrl = `/animals?${searchParams.toString()}`;
+  const requestUrl = `https://chris-larham-1983.github.io/debugging-test/animals?${searchParams.toString()}`;
 
   const response = await fetch(requestUrl, {
     method: 'GET'
@@ -23,7 +24,9 @@ export const getPetDetails = async (id) => {
 };
 
 export const getPetTypes = async () => {
-  const requestUrl = `/types`;
+  //const requestUrl = `/types`;
+  const requestUrl = `https://chris-larham-1983.github.io/debugging-test/types`;
+
   const response = await fetch(requestUrl, {
     method: 'GET'
   });

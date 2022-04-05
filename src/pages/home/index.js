@@ -15,12 +15,12 @@ const HomePage = () => {
       const petsData = await getPets(type);
       console.log(petsData);
       setData(petsData);
-      console.log(data);
-      console.log("data.length: " + data.length);
-      console.log("data.animals.length: " + data.animals.length);
     }
 
     getPetsData();
+    console.log(data);
+    console.log("data.length: " + data.length);
+    console.log("data.animals.length: " + data.animals.length);
   }, [type]);
 
   if (!data) {

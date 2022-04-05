@@ -18,9 +18,6 @@ const HomePage = () => {
     }
 
     getPetsData();
-    console.log(data);
-    console.log("data.length: " + data.length);
-    console.log("data.animals.length: " + data.animals.length);
   }, [type]);
 
   if (!data) {

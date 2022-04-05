@@ -26,7 +26,7 @@ const Navigation = () => {
         <ul className="nav-links">
           <li key={'all'}>
             {/* This link should have an activeClassName and exact prop */}
-            <NavLink to="https://chris-larham-1983.github.io/debugging-test/"
+            <NavLink to="/"
                      className="nav-link"
                      activeClassName='nav-link-active'
                      exact
@@ -38,7 +38,7 @@ const Navigation = () => {
               ? petTypes.map((type) => (
                   <li key={type.name}>
                     {/* These links should have an activeClassName prop */}
-                    <NavLink to={`https://chris-larham-1983.github.io/debugging-test/${type._links.self.href.split('/').pop()}`}
+                    <NavLink to={`/${type._links.self.href.split('/').pop()}`}
                              key={type.name}
                              className="nav-link"
                              activeClassName='nav-link-active'

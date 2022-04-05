@@ -15,16 +15,16 @@ function App() {
     <Router>
       <Navigation />
       <Switch>
-        <Route path='/pet-details-not-found'>
+        <Route path='https://chris-larham-1983.github.io/debugging-test/pet-details-not-found'>
           <PetDetailsNotFound/>
         </Route>
-        <Route path='/search'>
+        <Route path='https://chris-larham-1983.github.io/debugging-test/search'>
           <SearchPage/>
         </Route>
-        <Route path='/:type/:id'>
+        <Route path='https://chris-larham-1983.github.io/debugging-test/:type/:id'>
           <PetDetailsPage/>
         </Route>
-        <Route path='/:type?'>
+        <Route path='https://chris-larham-1983.github.io/debugging-test/:type?'>
           <HomePage />
         </Route>
       </Switch>

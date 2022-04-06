@@ -10,6 +10,9 @@ const HomePage = () => {
   //const { type } = useParams(); // Fix me!
   let params = useParams(); // extract the URL parameters
   console.log("Params: " + params);
+  for(let x in params) {
+    console.log(x + ": " + params[x]);
+  }
   const type = "";
   //const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'
 

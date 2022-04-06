@@ -21,7 +21,7 @@ function App() {
         <Route path='/search'>
           <SearchPage/>
         </Route>
-        <Route path='https://chris-larham-1983.github.io/debugging-test/:type/:id'>
+        <Route path='/:type/:id'>
           <PetDetailsPage/>
         </Route>
         <Route path='/:type?'>

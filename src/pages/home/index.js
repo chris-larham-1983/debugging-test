@@ -12,6 +12,8 @@ const HomePage = () => {
   console.log("Params: " + params);
   for(let x in params) {
     console.log(x + ": " + params[x]);
+    console.log(params['type']);
+    console.log(typeof(params['type']));
   }
   const type = "";
   //const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'

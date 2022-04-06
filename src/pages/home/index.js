@@ -45,7 +45,7 @@ const HomePage = () => {
           {data.map((animal) => (
             <Link // Change me to a Link!
               key={animal.id}
-              to={`/debugging-test/${animal.type.toLowerCase()}/${animal.id}`}
+              to={`/${animal.type.toLowerCase()}/${animal.id}`}
               className="pet"
             >
               <article>

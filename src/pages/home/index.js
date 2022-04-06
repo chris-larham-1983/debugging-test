@@ -7,8 +7,9 @@ import { useParams, Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [data, setData] = useState(null);
-  const { type } = useParams(); // Fix me!
-  //const type = "Animals";
+  //const { type } = useParams(); // Fix me!
+  let params = useParams(); // extract the URL parameters
+  const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'
 
   useEffect(() => {
     async function getPetsData() {

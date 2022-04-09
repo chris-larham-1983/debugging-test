@@ -55,7 +55,7 @@ const HomePage = () => {
                       className="pet-image"
                       src={
                         animal.photos[0]?.medium ||
-                        '/missing-animal.png'
+                        'https://chris-larham-1983.github.io/images/missing-animal.png'
                       }
                       alt=""
                     />

@@ -19,7 +19,7 @@ const HomePage = (props) => {
   //const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'
   const type = props.type;
   console.log('Type: ' + type);
-  console.log('SHIBBOLETH III');
+  console.log('SHIBBOLETH IV');
 
   useEffect(() => {
     async function getPetsData() {

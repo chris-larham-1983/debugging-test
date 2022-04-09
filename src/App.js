@@ -21,11 +21,11 @@ function App() {
         <Route path='/search'>
           <SearchPage/>
         </Route>
-        <Route path='/cat'>
-          <HomePage type="cat" />
-        </Route>
         <Route path='/:type/:id'>
           <PetDetailsPage/>
+        </Route>
+        <Route path='/cat'>
+          <HomePage type="cat" />
         </Route>
         <Route path='/'>
           <HomePage type="" />

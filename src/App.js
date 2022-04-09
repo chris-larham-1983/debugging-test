@@ -25,7 +25,7 @@ function App() {
           <PetDetailsPage/>
         </Route>
         <Route path='/'>
-          <HomePage type="animals" />
+          <HomePage type="" />
         </Route>
       </Switch>
     </Router>

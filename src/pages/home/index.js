@@ -18,7 +18,7 @@ const HomePage = (props) => {
   //const type = params['type'].replace("debugging-test", "");
   //const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'
   const type = props.type;
-  console.log(`Type: ${type}`);
+  console.log('Type: ' + type);
 
   useEffect(() => {
     async function getPetsData() {

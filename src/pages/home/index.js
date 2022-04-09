@@ -5,18 +5,20 @@ import Pet from '../../components/pet';
 
 import { useParams, Link } from 'react-router-dom';
 
-const HomePage = () => {
+const HomePage = (props) => {
   const [data, setData] = useState(null);
   //const { type } = useParams(); // Fix me!
-  let params = useParams(); // extract the URL parameters
-  console.log("Params: " + params);
-  for(let x in params) {
-    console.log(x + ": " + params[x]);
-    console.log(params['type']);
-    console.log(typeof(params['type']));
-  }
-  const type = params['type'].replace("debugging-test", "");
+  //let params = useParams(); // extract the URL parameters
+  //console.log("Params: " + params);
+  //for(let x in params) {
+  //  console.log(x + ": " + params[x]);
+  //  console.log(params['type']);
+  //  console.log(typeof(params['type']));
+  //}
+  //const type = params['type'].replace("debugging-test", "");
   //const type = params.replace("debugging-test", ""); //set type equal to 'params' minus the 'debugging-test'
+  const type = props.type;
+
 
   useEffect(() => {
     async function getPetsData() {

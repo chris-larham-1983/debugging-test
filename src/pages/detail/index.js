@@ -13,6 +13,7 @@ const PetDetailsPage = () => {
   useEffect(() => {
     async function getPetsData() {
       try {
+        console.log("About to fetch pet details from within <PetDetailsPage />");
         const petsData = await getPetDetails(id);
         setData(petsData);
         setError(false);

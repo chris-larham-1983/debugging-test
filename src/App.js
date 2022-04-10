@@ -27,6 +27,9 @@ function App() {
         <Route path='/cat'>
           <HomePage type="cat" />
         </Route>
+        <Route path='/dog'>
+          <HomePage type="dog" />
+        </Route>
         <Route path='/'>
           <HomePage type="" />
         </Route>

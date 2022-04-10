@@ -16,7 +16,10 @@ const Search = () => {
     const searchQuery = new URLSearchParams({
       name: searchInputRef.current.value
     }).toString();
-
+    //if no search term was entered:
+    if(!searchQuery.trim().length) {
+      return;
+    }
     // imperatively redirect with history.push()
     history.push('/search?' + searchQuery)
   };

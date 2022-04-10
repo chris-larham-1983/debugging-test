@@ -30,6 +30,12 @@ function App() {
         <Route path='/dog'>
           <HomePage type="dog" />
         </Route>
+        <Route path='/rabbit'>
+          <HomePage type="rabbit" />
+        </Route>
+        <Route path='/bird'>
+          <HomePage type="bird" />
+        </Route>
         <Route path='/'>
           <HomePage type="" />
         </Route>

@@ -20,7 +20,8 @@ const SearchPage = () => {
   useEffect(() => {
     async function getPetsData() {
       const petNameToFind = queryParams.get('name');
-      const petsData = await getPets('', petNameToFind);
+      console.log("petNameToFind: " + petNameToFind);
+      const petsData = await getPets(petNameToFind);
 
       setPets(petsData);
     }

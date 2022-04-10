@@ -23,7 +23,7 @@ const SearchPage = () => {
       console.log("petNameToFind: " + petNameToFind);
       const petsData = await getPets(petNameToFind);
 
-      setPets(petsData);
+      setPets(petsData.animals);
     }
 
     getPetsData();

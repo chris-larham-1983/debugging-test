@@ -12,7 +12,6 @@ const HomePage = (props) => {
   useEffect(() => {
     async function getPetsData() {
       let petsData = await getPets(type);
-      console.log(petsData.animals);
       setData(petsData.animals);
     }
 

@@ -20,7 +20,6 @@ const Search = () => {
     if(searchQuery.trim().length === 5) {
       return;
     }
-    console.log("SHIBBOLETH: searchQuery.trim().length: " + searchQuery.trim().length);
     // imperatively redirect with history.push()
     history.push('/search?' + searchQuery)
   };

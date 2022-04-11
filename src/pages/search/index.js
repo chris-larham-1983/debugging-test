@@ -2,13 +2,10 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Hero from '../../components/hero';
 import { getPets } from '../../api/petfinder';
 import Pet from '../../components/pet';
-
-// import useLocation here
 import { useLocation } from 'react-router';
 
 const SearchPage = () => {
 
-  // Get the search value from useLocation() here
   const { search } = useLocation();
 
   const queryParams = useMemo(() => { 
@@ -20,10 +17,12 @@ const SearchPage = () => {
   useEffect(() => {
     async function getPetsData() {
       const petNameToFind = queryParams.get('name');
-      console.log("petNameToFind: " + petNameToFind);
       const petsData = await getPets(petNameToFind);
+      const searchMatches = petsData.animals.filter((animal) => {
+        return animal.name.toLowerCase().includes(petNameToFind.toLowerCase());
+      });
 
-      setPets(petsData.animals);
+      setPets(searchMatches);
     }
 
     getPetsData();

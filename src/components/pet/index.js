@@ -2,9 +2,9 @@ import React from 'react';
 
 const Pet = ({ animal }) => {
   return (
-    <a
+    <Link
       key={animal.id}
-      href={`/${animal.type.toLowerCase()}/${animal.id}`}
+      to={`/${animal.type.toLowerCase()}/${animal.id}`}
       className="pet"
     >
       <article>
@@ -24,7 +24,7 @@ const Pet = ({ animal }) => {
         <p>Color: {animal.colors.primary}</p>
         <p>Gender: {animal.gender}</p>
       </article>
-    </a>
+    </Link>
   );
 };
 

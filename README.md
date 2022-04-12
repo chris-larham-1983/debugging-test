@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Debugging Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my solution to the problem of how to successfully deploy *Codecademy*'s *Adopt a Pet!* project to **GitHub Pages**. The 
+project involved communicating with a mock API backend; this was causing issues on **GitHub Pages** but was not causing problems 
+on **Netlify** or on the **localhost**.  The issue was brought to my attention on the following thread: 
+https://discuss.codecademy.com/t/adopt-a-pet-off-platform-practice-project/597981/16.
 
-## Available Scripts
+## What Causes The Issues?
 
-In the project directory, you can run:
+I believe that the issues are caused by the way that **GitHub Pages** bundles up the app's assets; relative links that work 
+on the **localhost** no longer work when the app is deployed to **GitHub Pages**.
 
-### `yarn start`
+## How Did I Solve The Issues?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I removed the line of code `const { type } = useParams();` because this was not working as expected.  `type` was being set 
+to `debugging-test` when the `<HomePage />` element loaded at `https://chris-larham-1983.github.io/debugging-test`; the expected 
+behaviour was that `type` should be undefined.  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To get around this quirky behaviour I rewrote the `<HomePage />` element so that it accepts a `type` prop, based on the 
+'path'.  Thus, when the `<HomePage />` element loads at the `/` path, a `type` prop with a value of `""` is passed to the 
+`<HomePage />` element; when the `<HomePage />` element loads at the `/cat` path, a `type` prop with a value of `"cat"` is passed to the `
+<HomePage />` element; when the `<HomePage />` element loads at the `/dog` path, a `type` prop with a value of `"dog"` is passed 
+to the `<HomePage />` element, and so on. I updated the `<Route>s` in `App.js` accordingly.
 
-### `yarn test`
+To overcome the problem of relative links not communicating with **GitHub Pages**'s assets correctly I set an absolute path to 
+the `<Hero />`'s background image and rewrote the `getPets`, `getPetDetails`, and `getPetTypes` functions in `petfinder/index.js` to 
+communicate with an API hosted on my personal **GitHub** page. This API is thus at an absolute path, rather than a relative path; 
+this JSON API can be seen at: https://github.com/chris-larham-1983/chris-larham-1983.github.io/tree/main/json_data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The final change that I made was to the `<SearchPage />` component, ensuring the search functionality worked correctly and 
+communicated with the correct self-hosted API endpoint.
 
-### `yarn build`
+## Using the App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The 'live' app can be viewed and interacted with at: https://chris-larham-1983.github.io/debugging-test.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Alternatively, this project can be cloned and modified for your own purposes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `yarn eject`
+MIT License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Copyright (c) 2022 Chris Larham
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,6 +1,4 @@
-export const getPets = async (type) => { //modified so that it's no longer (type = '', query = '')
-  //const searchParams = new URLSearchParams({ type, query });
-  //const requestUrl = `/animals?${searchParams.toString()}`;
+export const getPets = async (type) => {
   let petType;
   if(type === 'cat') {
     petType = 'cat';
@@ -37,7 +35,6 @@ export const getPetDetails = async (id) => {
 };
 
 export const getPetTypes = async () => {
-  //const requestUrl = `/types`;
   const requestUrl = `https://chris-larham-1983.github.io/json_data/types.json`;
 
   const response = await fetch(requestUrl, {
